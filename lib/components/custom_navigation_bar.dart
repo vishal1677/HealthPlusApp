@@ -1,11 +1,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:healthplus/components/message.dart';
 
 
 import '../constants.dart';
 import '../enums.dart';
 import '../home/icon_but_with_cnt.dart';
+import '../profile/profile_screen.dart';
 
 
 class CustomBottomNavBar extends StatelessWidget {
@@ -22,7 +24,7 @@ class CustomBottomNavBar extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 14),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.teal[50],
         boxShadow: [
           BoxShadow(
             offset: Offset(0, -15),
@@ -61,18 +63,19 @@ class CustomBottomNavBar extends StatelessWidget {
               //   },
               //
               // ),
-              IconBtnWithCounter(
-                svgSrc: "assets/icons/Bell.svg",
-                numOfitem: 1, // here we have to edit
+              IconButton(
+                //svgSrc: "assets/icons/Bell.svg",
+                icon: SvgPicture.asset("assets/icons/Bell.svg"),
+                //numOfitem: 1, // here we have to edit
                  //press: () =>  Navigator.of(context).push(MaterialPageRoute(builder:(context)=> Notifications()),),
                 //press: () =>  Navigator.of(context).push(MaterialPageRoute(builder:(context)=> MarketView()),),
-                press: () {  },
+                onPressed: () {  },
               ),
               IconButton(
                 icon: SvgPicture.asset("assets/icons/Conversation.svg"),
 
                 onPressed: () {
-                  //Navigator.of(context).push(MaterialPageRoute(builder:(context)=> AddProduct()),);
+                  Navigator.of(context).push(MaterialPageRoute(builder:(context)=> Chat()),);
                   //Navigator.pushNamed(context, Chat.routeName);
                 },
               ),
@@ -83,7 +86,7 @@ class CustomBottomNavBar extends StatelessWidget {
                   //     ? kPrimaryColor
                   //     : inActiveIconColor,
                 ),
-                onPressed: () {},
+                onPressed: () =>Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfileScreen())),
                 //onPressed: () =>
                 //Navigator.pushNamed(context, ProfileScreen.routeName),
               ),

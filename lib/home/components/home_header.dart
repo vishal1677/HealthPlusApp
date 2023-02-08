@@ -18,14 +18,14 @@ class HomeHeader extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SearchField(),
-          // IconBtnWithCounter(
-          //     svgSrc: "assets/icons/Cart Icon.svg",
-          //     press: () {
-          //       //Navigator.push(context, MaterialPageRoute(builder:(context)=> CartScreen()));
-          //       //Navigator.push(context, MaterialPageRoute(builder:(context)=> CustomAppBar(rating: 100.0)));
-          //       //Navigator.pushNamed(context, AddProduct.routeName);
-          //     }
-          // ),
+          IconBtnWithCounter(
+              svgSrc: "assets/icons/Heart Icon.svg",
+              press: () {
+                //Navigator.push(context, MaterialPageRoute(builder:(context)=> CartScreen()));
+                //Navigator.push(context, MaterialPageRoute(builder:(context)=> CustomAppBar(rating: 100.0)));
+                //Navigator.pushNamed(context, AddProduct.routeName);
+              }
+          ),
           //Admin(),  // removed from search field add cart
           //CustomBottomNavBar()
         ],

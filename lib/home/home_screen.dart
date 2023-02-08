@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:healthplus/home/components/categories.dart';
 
 import '../components/custom_navigation_bar.dart';
 import '../enums.dart';
@@ -30,7 +31,7 @@ class Body extends StatelessWidget {
             HomeHeader(),
             SizedBox(height: getProportionateScreenWidth(10)),
             DiscountBanner(),
-            // Categories(),
+             Categories(),
             SizedBox(height: getProportionateScreenWidth(10)),
             //EcommerceImage(),
             SizedBox(height: getProportionateScreenWidth(30)),
