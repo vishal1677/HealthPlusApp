@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
+import 'package:healthplus/home/home_screen.dart';
 
 import 'mobileotp.dart';
 
@@ -31,7 +32,7 @@ class _MobileLoginState extends State<MobileLogin> {
         backgroundColor: Colors.white,
         appBar: AppBar(
           title: const Text("Phone Verification"),
-          backgroundColor: Colors.deepPurple[400],
+          backgroundColor: Colors.teal[500],
         ),
         body:
         Container(
@@ -60,7 +61,7 @@ class _MobileLoginState extends State<MobileLogin> {
                   Container(
                     height: 55,
                     decoration: BoxDecoration(
-                        border: Border.all(width: 1, color: Colors.deepOrangeAccent),
+                        border: Border.all(width: 1, color: Colors.teal),
                         borderRadius: BorderRadius.circular(10)
                     ),
                     child: Row(
@@ -78,7 +79,7 @@ class _MobileLoginState extends State<MobileLogin> {
                         Text(
                           "|",
                           style: TextStyle(
-                              fontSize: 40, color: Colors.deepOrangeAccent
+                              fontSize: 40, color: Colors.teal[500]
                           ),
                         ),
 
@@ -113,10 +114,11 @@ class _MobileLoginState extends State<MobileLogin> {
 
 
                       //Navigator.push(context, MaterialPageRoute(builder: (context)=>MobileOTP()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
                     },
                       child: Text("Send the OTP "),
                       style: ElevatedButton.styleFrom(
-                          primary: Colors.deepPurple[400],
+                          primary: Colors.teal[500],
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10)
                           )

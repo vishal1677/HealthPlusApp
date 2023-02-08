@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.smart_helath_management_system">
+    package="com.example.healthplus">
    <application
-        android:label="smart_helath_management_system"
+        android:label="healthplus"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -6,8 +6,8 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'package:overlay_support/overlay_support.dart';
-import 'package:smart_helath_management_system/routes.dart';
-import 'package:smart_helath_management_system/screens/splashscreen.dart';
+import 'package:healthplus/routes.dart';
+import 'package:healthplus/screens/splashscreen.dart';
 
 import 'firebase_options.dart';
 

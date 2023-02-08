@@ -1,4 +1,4 @@
-# smart_helath_management_system
+# healthplus
 
 A new Flutter project.
 

@@ -1,7 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:smart_helath_management_system/MobileAuth/mobileauth.dart';
+import 'package:healthplus/MobileAuth/mobileauth.dart';
 
 import '../size_config.dart';
 
@@ -50,8 +50,9 @@ class _SplashScreenState extends State<SplashScreen> {
                 children: [
                   Image.asset("assets/images/healthcare-loader.gif", height: 300, width: 300,alignment: Alignment.topCenter,),
                   SizedBox(height: 10,),
-                  Text("SaveOne", style: TextStyle(
+                  Text("Health Plus", style: TextStyle(
                     fontSize: 22,fontWeight: FontWeight.bold,
+                    color: Colors.teal[500]
                   ),
                   ),
                   SizedBox(height: 10,),

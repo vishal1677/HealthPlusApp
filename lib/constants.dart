@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:smart_helath_management_system/size_config.dart';
+import 'package:healthplus/size_config.dart';
 
 /////
 const defaultPadding = 20.0;

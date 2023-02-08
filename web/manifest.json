@@ -1,6 +1,6 @@
 {
-    "name": "smart_helath_management_system",
-    "short_name": "smart_helath_management_system",
+    "name": "healthplus",
+    "short_name": "healthplus",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

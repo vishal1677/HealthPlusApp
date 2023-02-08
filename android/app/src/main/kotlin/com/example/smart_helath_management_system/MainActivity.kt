@@ -1,4 +1,4 @@
-package com.example.smart_helath_management_system
+package com.example.healthplus
 
 import io.flutter.embedding.android.FlutterActivity
 
