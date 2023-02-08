@@ -75,6 +75,7 @@ dependencies:
   flutter_secure_storage:
   pinput: ^2.2.12
   flutter_share: ^2.0.0
+  pin_code_fields: ^7.4.0
 
 
 dev_dependencies:
