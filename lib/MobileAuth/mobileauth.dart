@@ -114,7 +114,7 @@ class _MobileLoginState extends State<MobileLogin> {
 
 
                       //Navigator.push(context, MaterialPageRoute(builder: (context)=>MobileOTP()));
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>OtpScreen()));
                     },
                       child: Text("Send the OTP "),
                       style: ElevatedButton.styleFrom(
