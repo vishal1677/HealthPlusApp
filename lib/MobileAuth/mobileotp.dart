@@ -7,7 +7,6 @@ class OtpScreen extends StatefulWidget{
   State<OtpScreen> createState() {
     return OtpState();
   }
-
 }
 
 class OtpState extends State<OtpScreen>{
