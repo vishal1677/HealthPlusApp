@@ -38,7 +38,7 @@ dependencies:
   geolocator: ^8.2.0
   geocoding: ^2.0.4
   firebase_database:
-  pinput: ^2.2.23
+
 
 
 
@@ -76,6 +76,7 @@ dependencies:
   flutter_secure_storage:
   flutter_share: ^2.0.0
   pin_code_fields: ^7.4.0
+  pinput: ^2.2.12
 
 
 dev_dependencies:

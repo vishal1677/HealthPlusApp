@@ -26,7 +26,7 @@ Future<void> main() async
 
 
 
-
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 
 
@@ -49,6 +49,7 @@ class MyApp extends StatelessWidget
   //   return true;// dash boars
   //
   // }
+  final Future<FirebaseApp>_initialization=Firebase.initializeApp();
 
   @override
   Widget build(BuildContext context) {
@@ -56,21 +57,12 @@ class MyApp extends StatelessWidget
 
     // TODO: implement build
 
-    return  OverlaySupport(
-      child: MaterialApp(
+    return  FutureBuilder(
+      future: _initialization,
+      builder: (context,snapshot){
+        if(snapshot.hasError) { print("Error"); }
+        if(snapshot.connectionState==ConnectionState.done) { return  OverlaySupport( child: MaterialApp( debugShowCheckedModeBanner: false, initialRoute: SplashScreen.routeName, routes: routes, ), );}  return CircularProgressIndicator(); });
 
-        debugShowCheckedModeBanner: false,
-       initialRoute: SplashScreen.routeName,
-
-        routes: routes,
-
-
-
-
-
-
-      ),
-    );
   }
 
 }
