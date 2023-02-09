@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
+
 import 'package:healthplus/home/home_screen.dart';
 
 import 'mobileotp.dart';
@@ -31,8 +32,20 @@ class _MobileLoginState extends State<MobileLogin> {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: const Text("Phone Verification"),
+          title: Center(child: const Text("Phone Verification")),
+          elevation: 20,
           backgroundColor: Colors.teal[500],
+          actions: [
+            IconButton(
+                onPressed: (){
+                  //Navigator.push(context, MaterialPageRoute(builder: (context)=>adminLogin()));
+                },
+                icon: Icon(
+                  Icons.admin_panel_settings_rounded,
+                  color: Colors.indigo[700],
+                )
+            ),
+          ],
         ),
         body:
         Container(
@@ -108,11 +121,6 @@ class _MobileLoginState extends State<MobileLogin> {
                     height: 45,
                     width: double.infinity,
                     child: ElevatedButton(onPressed: () {
-
-
-
-
-
                       //Navigator.push(context, MaterialPageRoute(builder: (context)=>MobileOTP()));
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>OtpScreen()));
                     },
