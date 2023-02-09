@@ -1,4 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:healthplus/MobileAuth/mobileauth.dart';
+import 'package:healthplus/home/home_screen.dart';
+import 'package:healthplus/profile/profile_screen.dart';
 import 'package:hive/hive.dart';
 import 'package:pinput/pinput.dart';
 
@@ -10,30 +14,32 @@ class OtpScreen extends StatefulWidget{
 }
 
 class OtpState extends State<OtpScreen>{
-  String? otpCode;
+  String otpCode="";
+  String Checkotp="";
+  final FirebaseAuth auth=FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
+    var p1=TextEditingController();
+    var p2=TextEditingController();
+    var p3=TextEditingController();
+    var p4=TextEditingController();
+    var p5=TextEditingController();
+    var p6=TextEditingController();
     return Scaffold(
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: Center(
           child: Padding(
             padding:
             const EdgeInsets.symmetric(vertical: 25, horizontal: 30),
             child: Column(
               children: [
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: GestureDetector(
-                    onTap: () => Navigator.of(context).pop(),
-                    child: const Icon(Icons.arrow_back),
-                  ),
-                ),
 
-                const SizedBox(height: 20),
+                const SizedBox(height: 80),
                 const Text(
                   "Verification",
                   style: TextStyle(
-                    fontSize: 22,
+                    fontSize: 34,
+                    color: Colors.teal,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -47,68 +53,262 @@ class OtpState extends State<OtpScreen>{
                   ),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 20),
-                Pinput(
-                  length: 6,
-                  showCursor: true,
-                  defaultPinTheme: PinTheme(
-                    width: 60,
+                const SizedBox(height: 30),
+              Container(
+                height: 80,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 45,
                     height: 60,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: Colors.teal,
-                      ),
                     ),
-                    textStyle: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  onCompleted: (value) {
-                    setState(() {
-                      otpCode = value;
-                    });
-                  },
-                ),
-                const SizedBox(height: 25),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: 50,
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints.tightFor(height: 20,width: 100),
-                    child: ElevatedButton(
-                      child:
-                      Text("Verify"),
-                      onPressed: () {
-
+                    child: TextField(
+                      keyboardType: TextInputType.number,
+                      style: TextStyle(fontSize: 15,color: Colors.black87,),
+                      controller: p1,
+                      maxLength: 1,
+                      onChanged: (p1){
+                        if(p1.length==1){
+                          FocusScope.of(context).nextFocus();
+                        }
                       },
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.teal[400],
-                        textStyle: TextStyle(fontSize: 20),
-                        shadowColor: Colors.black87,
-
+                      decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide(
+                              color: Colors.teal,
+                              width: 2,
+                            ),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide(
+                              color: Colors.black87,
+                              width: 2,
+                            ),
+                          ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 20),
-                const Text(
-                  "Didn't receive any code?",
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black38,
+                  SizedBox(width: 1,height: 50,),
+                  Container(
+                    width: 45,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: TextField(
+                      keyboardType: TextInputType.number,
+                      style: TextStyle(fontSize: 15,color: Colors.black87,),
+                      controller: p2,
+                      maxLength: 1,
+                      onChanged: (p2){
+                        if(p2.length==1){
+                          FocusScope.of(context).nextFocus();
+                        }
+                      },
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(
+                            color: Colors.teal,
+                            width: 2,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(
+                            color: Colors.black87,
+                            width: 2,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-                const SizedBox(height: 15),
-                InkWell(
-                  child: const Text(
-                    "Resend Otp",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.teal,
+                  SizedBox(width: 1,height: 50,),
+                  Container(
+                    width: 45,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: TextField(
+                      keyboardType: TextInputType.number,
+                      style: TextStyle(fontSize: 15,color: Colors.black87,),
+                      controller: p3,
+                      maxLength: 1,
+                      onChanged: (p3){
+                        if(p3.length==1){
+                          FocusScope.of(context).nextFocus();
+                        }
+                      },
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(
+                            color: Colors.teal,
+                            width: 2,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(
+                            color: Colors.black87,
+                            width: 2,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 1,height: 50,),
+                  Container(
+                    width: 45,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: TextField(
+                      keyboardType: TextInputType.number,
+                      style: TextStyle(fontSize: 15,color: Colors.black87,),
+                      controller: p4,
+                      maxLength: 1,
+                      onChanged: (p4){
+                        if(p4.length==1){
+                          FocusScope.of(context).nextFocus();
+                        }
+                      },
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(
+                            color: Colors.teal,
+                            width: 2,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(
+                            color: Colors.black87,
+                            width: 2,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 1,height: 50,),
+                  Container(
+                    width: 45,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: TextField(
+                      keyboardType: TextInputType.number,
+                      style: TextStyle(fontSize: 15,color: Colors.black87,),
+                      controller: p5,
+                      maxLength: 1,
+                      onChanged: (p5){
+                        if(p5.length==1){
+                          FocusScope.of(context).nextFocus();
+                        }
+                      },
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(
+                            color: Colors.teal,
+                            width: 2,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(
+                            color: Colors.black87,
+                            width: 2,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 1,height: 50,),
+                  Container(
+                    width: 45,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: TextField(
+                      keyboardType: TextInputType.number,
+                      style: TextStyle(fontSize: 15,color: Colors.black87,),
+                      controller: p6,
+                      maxLength: 1,
+                      onChanged: (p6){
+                        if(p6.length==1){
+                          FocusScope.of(context).nextFocus();
+                        }
+                      },
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(
+                            color: Colors.teal,
+                            width: 2,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(
+                            color: Colors.black87,
+                            width: 2,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 25),
+                const SizedBox(height: 45),
+                SizedBox(height: 15,),
+                Container(
+                  width: 300,
+                  height: 40,
+                  color: Colors.teal,
+                  child: Center(
+                    child: InkWell(
+                      onTap: () async{
+                        try{
+                          otpCode=p1.text.toString()+p2.text.toString()+p3.text.toString()+p4.text.toString()+p5.text.toString()+p6.text.toString();
+                          Checkotp=MobileLogin.verify;
+                          PhoneAuthCredential credential = PhoneAuthProvider.credential(verificationId: Checkotp, smsCode: otpCode);
+
+                          // Sign the user in (or link) with the credential
+                          await auth.signInWithCredential(credential);
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+                        }
+                        catch(e){
+                          print('wrong otp');
+                          print('$otpCode  ($Checkotp)');
+                        }
+                        //Navigator.push(context, MaterialPageRoute(builder: (context)=>));
+                        // setState(() {
+                        //   if(){
+                        //     Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+                        //   }
+                        // });
+                      },
+                      child: const Text(
+                        "Verify",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -119,7 +319,6 @@ class OtpState extends State<OtpScreen>{
       ),
     );
   }
-
 }
 // import 'package:flutter/material.dart';
 // import 'package:phoneauth_firebase/provider/auth_provider.dart';

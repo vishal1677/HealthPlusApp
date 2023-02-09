@@ -4,13 +4,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 
 import 'package:healthplus/home/home_screen.dart';
+import 'package:healthplus/sign_in/sign_in_screen.dart';
 
 import 'mobileotp.dart';
 
 class MobileLogin extends StatefulWidget {
   static String routeName="/mobileauth";
   const MobileLogin({Key? key}) : super(key: key);
-
+  static String verify="";
   @override
   State<MobileLogin> createState() => _MobileLoginState();
 }
@@ -38,7 +39,7 @@ class _MobileLoginState extends State<MobileLogin> {
           actions: [
             IconButton(
                 onPressed: (){
-                  //Navigator.push(context, MaterialPageRoute(builder: (context)=>adminLogin()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SignInScreen()));
                 },
                 icon: Icon(
                   Icons.admin_panel_settings_rounded,
@@ -84,7 +85,7 @@ class _MobileLoginState extends State<MobileLogin> {
                           width: 40,
                           child: TextField(
                             controller: countrycode,
-                            keyboardType: TextInputType.number,
+                            keyboardType: TextInputType.phone,
                             decoration: InputDecoration(border: InputBorder.none, hintText: "+91"),
                           ),
                         ),
@@ -120,10 +121,20 @@ class _MobileLoginState extends State<MobileLogin> {
                   SizedBox(
                     height: 45,
                     width: double.infinity,
-                    child: ElevatedButton(onPressed: () {
+                    child: ElevatedButton(onPressed: () async{
                       //Navigator.push(context, MaterialPageRoute(builder: (context)=>MobileOTP()));
                       //Navigator.push(context, MaterialPageRoute(builder: (context)=>OtpScreen()));
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+                      //Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+                      await FirebaseAuth.instance.verifyPhoneNumber(
+                        phoneNumber: '${countrycode.text + mobileNo.text}',
+                        verificationCompleted: (PhoneAuthCredential credential) {},
+                        verificationFailed: (FirebaseAuthException e) {},
+                        codeSent: (String verificationId, int? resendToken) {
+                          MobileLogin.verify=verificationId;
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>OtpScreen()));
+                        },
+                        codeAutoRetrievalTimeout: (String verificationId) {},
+                      );
                     },
                       child: Text("Send the OTP "),
                       style: ElevatedButton.styleFrom(

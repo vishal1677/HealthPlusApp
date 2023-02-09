@@ -205,21 +205,21 @@ class _SignFormState extends State<SignForm> {
   void SignIn(String email, String password) async
   {
     if(_formKey.currentState!.validate())
-      {
-          await _auth.signInWithEmailAndPassword(email: email, password: password).then((uid) => {
-            Fluttertoast.showToast(msg: "Login Sucessful"),
-            //Navigator.pushNamed(context, LoginSuccessScreen.routeName),
-            //// 19:12 see validation
-          }).catchError((e){
-            Fluttertoast.showToast(msg: e!.message);
-          });
-        // UserCredential userCredential =await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
-        // print(userCredential.user?.uid);
-        // await storage.write(key: "uid", value:userCredential.user?.uid );
-        // Fluttertoast.showToast(msg: "Login Sucessful");
-        // Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+    {
+      await _auth.signInWithEmailAndPassword(email: email, password: password).then((uid) => {
+        Fluttertoast.showToast(msg: "Login Sucessful"),
+        //Navigator.pushNamed(context, LoginSuccessScreen.routeName),
+        //// 19:12 see validation
+      }).catchError((e){
+        Fluttertoast.showToast(msg: e!.message);
+      });
+      // UserCredential userCredential =await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
+      // print(userCredential.user?.uid);
+      // await storage.write(key: "uid", value:userCredential.user?.uid );
+      // Fluttertoast.showToast(msg: "Login Sucessful");
+      // Navigator.pushNamed(context, LoginSuccessScreen.routeName);
 
-      }
+    }
   }
 }
 
