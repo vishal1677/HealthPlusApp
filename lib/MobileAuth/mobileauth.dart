@@ -170,12 +170,21 @@ class _MobileLoginState extends State<MobileLogin> {
                 SizedBox(
                   height: 45,
                   width: double.infinity,
-                  child: ElevatedButton(onPressed: (){
+                  child: ElevatedButton(onPressed: () async{
                     //Navigator.push(context, MaterialPageRoute(builder: (context)=>MobileOTP()));
                     //Navigator.push(context, MaterialPageRoute(builder: (context)=>OtpScreen()));
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+                    //Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
 
-                    //
+                    await FirebaseAuth.instance.verifyPhoneNumber(
+                      phoneNumber: '${countrycode.text + mobileNo.text}',
+                      verificationCompleted: (PhoneAuthCredential credential) {},
+                      verificationFailed: (FirebaseAuthException e) {},
+                      codeSent: (String verificationId, int? resendToken) {
+                        MobileLogin.verify=verificationId;
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>OtpScreen()));
+                      },
+                      codeAutoRetrievalTimeout: (String verificationId) {},
+                    );
                   },
                     child: Text("Send the OTP "),
                     style: ElevatedButton.styleFrom(
@@ -193,3 +202,7 @@ class _MobileLoginState extends State<MobileLogin> {
     );
   }
 }
+// Future<void> storeTokenAndData(UserCredential userCredential) async{
+//   await storage.write(key: "token", value: userCredential.credential.token.toString());
+//   await storage.write(key: "userCredential", value: userCredential.credential.toString());
+// }

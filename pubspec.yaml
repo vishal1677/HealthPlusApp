@@ -74,7 +74,7 @@ dependencies:
   flutter_secure_storage: ^8.0.0
   flutter_share: ^2.0.0
   pin_code_fields: ^7.4.0
-  pinput: ^2.2.20
+
   firebase_core: ^2.5.0
   firebase_auth: ^4.2.6
 

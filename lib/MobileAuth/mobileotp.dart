@@ -4,7 +4,6 @@ import 'package:healthplus/MobileAuth/mobileauth.dart';
 import 'package:healthplus/home/home_screen.dart';
 import 'package:healthplus/profile/profile_screen.dart';
 import 'package:hive/hive.dart';
-import 'package:pinput/pinput.dart';
 
 class OtpScreen extends StatefulWidget{
 
@@ -66,9 +65,9 @@ class OtpState extends State<OtpScreen>{
                   children: [
                     SizedBox(width: 2,),
                     Container(
-                    width: 45,
-                    height: 67,
-                    child: TextField(
+                      width: 45,
+                      height: 67,
+                      child: TextField(
                         controller: p1,
                         maxLength: 1,
                         onChanged:(p1){
@@ -93,8 +92,8 @@ class OtpState extends State<OtpScreen>{
                             ),
                           ),
                         ),
-                  ),
-                ),
+                      ),
+                    ),
                     SizedBox(width: 2,),
                     Container(
                       width: 45,
