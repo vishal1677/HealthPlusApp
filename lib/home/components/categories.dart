@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../size_config.dart';
+import 'advice.dart';
 
 class Categories extends StatelessWidget
 {
@@ -14,7 +15,7 @@ class Categories extends StatelessWidget
       {"icon": "assets/icons/Flash Icon.svg", "text": "Near by Lab","key":"1"},
       {"icon": "assets/icons/adviceImage2.svg", "text": "Advice","key":"2"},
       //{"icon": "assets/icons/Game Icon.svg", "text": "Game"},
-      {"icon": "assets/icons/receipt.svg", "text": "Categories","key":"3"},
+      {"icon": "assets/icons/receipt.svg", "text": "View Report","key":"3"},
       {"icon": "assets/icons/Discover.svg", "text": " Add Report","key":"4"},
     ];
     return Padding(
@@ -37,7 +38,7 @@ class Categories extends StatelessWidget
                 }
                 else if(categories[index]["key"]=="2")  // Advice
                     {
-                  //Navigator.push(context, MaterialPageRoute(builder: (context)=>Advice()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Advice()));
                   Fluttertoast.showToast(msg: "Advice");
                 }
                 else if(categories[index]["key"]=="3") // Market view

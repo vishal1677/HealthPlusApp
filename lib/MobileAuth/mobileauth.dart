@@ -52,156 +52,143 @@ class _MobileLoginState extends State<MobileLogin> {
         ),
         body:
         Container(
-            margin: EdgeInsets.only(left: 25, right: 25),
-            alignment: Alignment.center,
-            child:
-            SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset("assets/images/enter-password.gif", height: 200, width: 200,alignment: Alignment.topCenter,),
-                  SizedBox(height: 5,),
-                  Text("Phone Verification", style: TextStyle(
-                    fontSize: 22,fontWeight: FontWeight.bold,
+          margin: EdgeInsets.only(left: 25, right: 25),
+          alignment: Alignment.center,
+          child:
+          SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset("assets/images/enter-password.gif", height: 200, width: 200,alignment: Alignment.topCenter,),
+                SizedBox(height: 5,),
+                Text("Phone Verification", style: TextStyle(
+                  fontSize: 22,fontWeight: FontWeight.bold,
+                ),
+                ),
+                SizedBox(height: 5,),
+                Text("You need to register before getting started",
+                  style: TextStyle(
+                    fontSize: 16,
                   ),
-                  ),
-                  SizedBox(height: 5,),
-                  Text("You need to register before getting started",
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(height: 20,),
-                  Container(
-                    child: TextField(
-                      controller: FirstName,
-                      decoration: InputDecoration(
-                        hintText: "First Name",
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(
-                            color: Colors.teal,
-                            width: 2,
-                          ),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(
-                            color: Colors.black87,
-                            width: 2,
-                          ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 20,),
+                Container(
+                  child: TextField(
+                    controller: FirstName,
+                    decoration: InputDecoration(
+                      hintText: "First Name",
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide(
+                          color: Colors.teal,
+                          width: 2,
                         ),
                       ),
-                      keyboardType: TextInputType.text,
-                    ),
-                  ),
-                  SizedBox(height: 20,),
-                  Container(
-                    child: TextField(
-                      controller: LastName,
-                      decoration: InputDecoration(
-                        hintText: "Last Name",
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(
-                            color: Colors.teal,
-                            width: 2,
-                          ),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(
-                            color: Colors.black87,
-                            width: 2,
-                          ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide(
+                          color: Colors.black87,
+                          width: 2,
                         ),
                       ),
-                      keyboardType: TextInputType.text,
                     ),
+                    keyboardType: TextInputType.text,
                   ),
-                  SizedBox(height: 20,),
-                  Container(
-                    height: 55,
-                    decoration: BoxDecoration(
-                        border: Border.all(width: 1, color: Colors.teal),
-                        borderRadius: BorderRadius.circular(10)
-                    ),
-                    child: Row(
-                      children: [
-                        SizedBox(width: 10,),
-                        SizedBox(
-                          width: 40,
-                          child: TextField(
-                            controller: countrycode,
-                            keyboardType: TextInputType.phone,
-                            decoration: InputDecoration(border: InputBorder.none, hintText: "+91"),
-                          ),
+                ),
+                SizedBox(height: 20,),
+                Container(
+                  child: TextField(
+                    controller: LastName,
+                    decoration: InputDecoration(
+                      hintText: "Last Name",
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide(
+                          color: Colors.teal,
+                          width: 2,
                         ),
-
-                        Text(
-                          "|",
-                          style: TextStyle(
-                              fontSize: 40, color: Colors.teal[500]
-                          ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide(
+                          color: Colors.black87,
+                          width: 2,
                         ),
-
-                        Expanded(
-                            child:
-                            TextField(
-                              controller: mobileNo,
-                              inputFormatters: [
-                                LengthLimitingTextInputFormatter(10)
-                              ],
-                              onChanged: (value){
-
-                              },
-                              decoration: InputDecoration(border: InputBorder.none,
-                                hintText: "Mobile Number",
-                              ),
-                              keyboardType: TextInputType.number,
-                            )
-                        )
-                      ],
+                      ),
                     ),
+                    keyboardType: TextInputType.text,
                   ),
-                  SizedBox(height: 40,),
-                  SizedBox(
-                    height: 45,
-                    width: double.infinity,
-                    child: ElevatedButton(onPressed: () async{
-                      //Navigator.push(context, MaterialPageRoute(builder: (context)=>MobileOTP()));
-                      //Navigator.push(context, MaterialPageRoute(builder: (context)=>OtpScreen()));
-                      //Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+                ),
+                SizedBox(height: 20,),
+                Container(
+                  height: 55,
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 1, color: Colors.teal),
+                      borderRadius: BorderRadius.circular(10)
+                  ),
+                  child: Row(
+                    children: [
+                      SizedBox(width: 10,),
+                      SizedBox(
+                        width: 40,
+                        child: TextField(
+                          controller: countrycode,
+                          keyboardType: TextInputType.phone,
+                          decoration: InputDecoration(border: InputBorder.none, hintText: "+91"),
+                        ),
+                      ),
 
-                      await FirebaseAuth.instance.verifyPhoneNumber(
-                        phoneNumber: '${countrycode.text + mobileNo.text}',
-                        verificationCompleted: (PhoneAuthCredential credential) {},
-                        verificationFailed: (FirebaseAuthException e) {},
-                        codeSent: (String verificationId, int? resendToken) {
-                          MobileLogin.verify=verificationId;
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>OtpScreen()));
-                        },
-                        codeAutoRetrievalTimeout: (String verificationId) {},
-                      );
-                    },
-                      child: Text("Send the OTP "),
-                      style: ElevatedButton.styleFrom(
-                          primary: Colors.teal[500],
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)
+                      Text(
+                        "|",
+                        style: TextStyle(
+                            fontSize: 40, color: Colors.teal[500]
+                        ),
+                      ),
+
+                      Expanded(
+                          child:
+                          TextField(
+                            controller: mobileNo,
+                            inputFormatters: [
+                              LengthLimitingTextInputFormatter(10)
+                            ],
+                            onChanged: (value){
+
+                            },
+                            decoration: InputDecoration(border: InputBorder.none,
+                              hintText: "Mobile Number",
+                            ),
+                            keyboardType: TextInputType.number,
                           )
-                      ),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(height: 40,),
+                SizedBox(
+                  height: 45,
+                  width: double.infinity,
+                  child: ElevatedButton(onPressed: (){
+                    //Navigator.push(context, MaterialPageRoute(builder: (context)=>MobileOTP()));
+                    //Navigator.push(context, MaterialPageRoute(builder: (context)=>OtpScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+
+                    //
+                  },
+                    child: Text("Send the OTP "),
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.teal[500],
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)
+                        )
                     ),
-                  )
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
+          ),
         )
     );
   }
 }
-// Future<void> storeTokenAndData(UserCredential userCredential) async{
-//   await storage.write(key: "token", value: userCredential.credential.token.toString());
-//   await storage.write(key: "userCredential", value: userCredential.credential.toString());
-// }

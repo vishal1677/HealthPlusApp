@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Body(),
+      body:SingleChildScrollView(child: Body()),
       bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.home), ////////////
     );
   }
@@ -34,8 +34,12 @@ class Body extends StatelessWidget {
             SizedBox(height: getProportionateScreenWidth(10)),
             DiscountBanner(),
              Categories(),
-            SizedBox(height: getProportionateScreenWidth(100)),
+            SizedBox(height: getProportionateScreenWidth(10)),
            // CardWidget(),
+            Middle(),
+            Middle(),
+            Middle(),
+
             SizedBox(height: getProportionateScreenWidth(30)),
             //PopularProducts(),
             SizedBox(height: getProportionateScreenWidth(30)),
