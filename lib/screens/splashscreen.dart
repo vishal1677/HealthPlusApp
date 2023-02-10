@@ -2,6 +2,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:healthplus/MobileAuth/mobileauth.dart';
+import 'package:healthplus/home/home_screen.dart';
+import 'package:healthplus/sign_in/sign_in_screen.dart';
 
 import '../size_config.dart';
 
@@ -27,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(Duration(milliseconds: 5000),(){});// await for 1.5 seconds
 
 
-    Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=> MobileLogin()));
+    Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=> SignInScreen()));
 
   }
 

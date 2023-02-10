@@ -1,14 +1,18 @@
 // import 'package:flutter/cupertino.dart';
+// import 'package:flutter/material.dart';
 //
-// class UserReport extends StatefulWidget{
+// class TotalReport extends StatefulWidget {
+//   const TotalReport({Key? key}) : super(key: key);
+//
 //   @override
-//   State<UserReport> createState() {
-//     return UserReportState();
-//   }
+//   State<TotalReport> createState() => _TotalReportState();
 // }
-// class OtpState extends State<OtpScreen>{
 //
+// class _TotalReportState extends State<TotalReport> {
 //   @override
 //   Widget build(BuildContext context) {
+//     return Scaffold(
 //
-//     return Scaffold()
+//     );
+//   }
+// }

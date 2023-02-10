@@ -39,17 +39,17 @@ class _MobileLoginState extends State<MobileLogin> {
           title: Center(child: const Text("Phone Verification")),
           elevation: 20,
           backgroundColor: Colors.teal[500],
-          actions: [
-            IconButton(
-                onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SignInScreen()));
-                },
-                icon: Icon(
-                  Icons.admin_panel_settings_rounded,
-                  color: Colors.indigo[700],
-                )
-            ),
-          ],
+          // actions: [
+          //   IconButton(
+          //       onPressed: (){
+          //         //Navigator.push(context, MaterialPageRoute(builder: (context)=>SignInScreen()));
+          //       },
+          //       icon: Icon(
+          //         Icons.admin_panel_settings_rounded,
+          //         color: Colors.indigo[700],
+          //       )
+          //   ),
+          // ],
         ),
         body:
         Container(

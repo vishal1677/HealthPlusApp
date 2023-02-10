@@ -10,6 +10,7 @@ import '../../../components/form_error.dart';
 import '../../../constants.dart';
 import '../../../helper/keyboard.dart';
 import '../../../size_config.dart';
+import '../../loginsucessscreen/login_sucess_screen.dart';
 
 
 class SignForm extends StatefulWidget {
@@ -208,7 +209,7 @@ class _SignFormState extends State<SignForm> {
     {
       await _auth.signInWithEmailAndPassword(email: email, password: password).then((uid) => {
         Fluttertoast.showToast(msg: "Login Sucessful"),
-        //Navigator.pushNamed(context, LoginSuccessScreen.routeName),
+        Navigator.pushNamed(context, LoginSuccessScreen.routeName),
         //// 19:12 see validation
       }).catchError((e){
         Fluttertoast.showToast(msg: e!.message);
