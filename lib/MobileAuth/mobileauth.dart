@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
-
 import 'package:healthplus/home/home_screen.dart';
 import 'package:healthplus/sign_in/sign_in_screen.dart';
 
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'mobileotp.dart';
 
 class MobileLogin extends StatefulWidget {
@@ -20,13 +20,15 @@ class _MobileLoginState extends State<MobileLogin> {
 
   TextEditingController countrycode = TextEditingController();
   TextEditingController mobileNo = TextEditingController();
-
+  TextEditingController FirstName = TextEditingController();
+  TextEditingController LastName = TextEditingController();
 
   @override
   void initState() {
     countrycode.text = "+91";
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     var PhoneNo;
@@ -57,13 +59,13 @@ class _MobileLoginState extends State<MobileLogin> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset("assets/images/enter-password.gif", height: 300, width: 300,alignment: Alignment.topCenter,),
-                  SizedBox(height: 10,),
+                  Image.asset("assets/images/enter-password.gif", height: 200, width: 200,alignment: Alignment.topCenter,),
+                  SizedBox(height: 5,),
                   Text("Phone Verification", style: TextStyle(
                     fontSize: 22,fontWeight: FontWeight.bold,
                   ),
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(height: 5,),
                   Text("You need to register before getting started",
                     style: TextStyle(
                       fontSize: 16,
@@ -71,7 +73,54 @@ class _MobileLoginState extends State<MobileLogin> {
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 20,),
-
+                  Container(
+                    child: TextField(
+                      controller: FirstName,
+                      decoration: InputDecoration(
+                        hintText: "First Name",
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(
+                            color: Colors.teal,
+                            width: 2,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(
+                            color: Colors.black87,
+                            width: 2,
+                          ),
+                        ),
+                      ),
+                      keyboardType: TextInputType.text,
+                    ),
+                  ),
+                  SizedBox(height: 20,),
+                  Container(
+                    child: TextField(
+                      controller: LastName,
+                      decoration: InputDecoration(
+                        hintText: "Last Name",
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(
+                            color: Colors.teal,
+                            width: 2,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(
+                            color: Colors.black87,
+                            width: 2,
+                          ),
+                        ),
+                      ),
+                      keyboardType: TextInputType.text,
+                    ),
+                  ),
+                  SizedBox(height: 20,),
                   Container(
                     height: 55,
                     decoration: BoxDecoration(
@@ -111,7 +160,6 @@ class _MobileLoginState extends State<MobileLogin> {
                                 hintText: "Mobile Number",
                               ),
                               keyboardType: TextInputType.number,
-
                             )
                         )
                       ],
@@ -125,6 +173,7 @@ class _MobileLoginState extends State<MobileLogin> {
                       //Navigator.push(context, MaterialPageRoute(builder: (context)=>MobileOTP()));
                       //Navigator.push(context, MaterialPageRoute(builder: (context)=>OtpScreen()));
                       //Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+
                       await FirebaseAuth.instance.verifyPhoneNumber(
                         phoneNumber: '${countrycode.text + mobileNo.text}',
                         verificationCompleted: (PhoneAuthCredential credential) {},
@@ -143,14 +192,16 @@ class _MobileLoginState extends State<MobileLogin> {
                               borderRadius: BorderRadius.circular(10)
                           )
                       ),
-
-
                     ),
                   )
                 ],
               ),
-            )
+            ),
         )
     );
   }
 }
+// Future<void> storeTokenAndData(UserCredential userCredential) async{
+//   await storage.write(key: "token", value: userCredential.credential.token.toString());
+//   await storage.write(key: "userCredential", value: userCredential.credential.toString());
+// }

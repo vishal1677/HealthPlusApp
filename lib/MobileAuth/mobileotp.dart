@@ -288,7 +288,7 @@ class OtpState extends State<OtpScreen>{
 
                           // Sign the user in (or link) with the credential
                           await auth.signInWithCredential(credential);
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+                          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>HomeScreen()), (route)=>false);
                         }
                         catch(e){
                           print('wrong otp');
