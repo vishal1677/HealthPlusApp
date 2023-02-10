@@ -9,6 +9,7 @@ import '../enums.dart';
 import '../size_config.dart';
 import 'components/addbanner.dart';
 import 'components/home_header.dart';
+import 'components/middleparts.dart';
 
 class HomeScreen extends StatelessWidget {
   static String routeName = "/home";
@@ -25,6 +26,7 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: SingleChildScrollView(
+
         child: Column(
           children: [
             SizedBox(height: getProportionateScreenWidth(20)),
@@ -32,11 +34,12 @@ class Body extends StatelessWidget {
             SizedBox(height: getProportionateScreenWidth(10)),
             DiscountBanner(),
              Categories(),
-            SizedBox(height: getProportionateScreenWidth(10)),
-            //EcommerceImage(),
+            SizedBox(height: getProportionateScreenWidth(100)),
+           // CardWidget(),
             SizedBox(height: getProportionateScreenWidth(30)),
             //PopularProducts(),
             SizedBox(height: getProportionateScreenWidth(30)),
+            //
           ],
         ),
       ),
