@@ -32,6 +32,7 @@ class _MobileLoginState extends State<MobileLogin> {
   @override
   Widget build(BuildContext context) {
     var PhoneNo;
+
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(

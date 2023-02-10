@@ -7,10 +7,8 @@
 //   }
 // }
 // class OtpState extends State<OtpScreen>{
-//   String otpCode="";
-//   String Checkotp="";
-//   final FirebaseAuth auth=FirebaseAuth.instance;
+//
 //   @override
 //   Widget build(BuildContext context) {
 //
-//     return Scaffold(
+//     return Scaffold()
