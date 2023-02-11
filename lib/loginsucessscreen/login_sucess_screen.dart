@@ -14,7 +14,7 @@ class LoginSuccessScreen extends StatelessWidget {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          backgroundColor: Colors.deepOrangeAccent,
+          backgroundColor: Colors.teal,
           leading: SizedBox(),
           //title: Text("Login Success",),
           title: Text("     Welcome",style: TextStyle(fontSize: 38,fontWeight: FontWeight.w400),),
