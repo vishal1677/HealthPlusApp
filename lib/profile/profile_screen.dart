@@ -1,12 +1,16 @@
+
+
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../constants.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import '../constants.dart';
+import '/models/user_model.dart';
+import '../sign_In/sign_in_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   static String routeName = "/profile";
@@ -14,7 +18,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.teal[400],
+        backgroundColor: Colors.teal,
         title: Text("Profile"),
       ),
       body: Body(),
@@ -22,7 +26,6 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
-
 
 
 
@@ -34,9 +37,21 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-
+  User? user=FirebaseAuth.instance.currentUser;
+  UserModel loggedInUser=UserModel();
+  final storage=new FlutterSecureStorage();
   @override
+  void initState()
+  {
+    super.initState();
+    FirebaseFirestore.instance.collection("users").doc(user!.uid).get().then((value){
+      loggedInUser=UserModel.fromMap(value.data());
+      setState(() {
 
+      });
+
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -47,21 +62,21 @@ class _BodyState extends State<Body> {
           SizedBox(height: 20),
           //facing problem to fecth the first name
           ProfileMenu(
-            text:  " Hey User",
+            text:  " ${loggedInUser.firstName} ${loggedInUser.secondName}",
             icon: "assets/icons/User Icon.svg",
             press: () => {
             },
           ),
-          // ProfileMenu(
-          //   text: "Mobile No",
-          //   icon: "assets/icons/Mail.svg",
-          //   press: () {},
-          // ),
+          ProfileMenu(
+            text: "${loggedInUser.email}",
+            icon: "assets/icons/Mail.svg",
+            press: () {},
+          ),
           ProfileMenu(
             text: "Notifications",
             icon: "assets/icons/Bell.svg",
-            press:(){},
-            //press: () =>  Navigator.of(context).push(MaterialPageRoute(builder:(context)=> Notifications()),),
+           // press: () =>  Navigator.of(context).push(MaterialPageRoute(builder:(context)=> Notifications()),),
+            press: () {},
           ),
           // ProfileMenu(
           //   text: "Settings",
@@ -77,9 +92,14 @@ class _BodyState extends State<Body> {
           //   },
           // ),
           ProfileMenu(
-            text: "Log Out",
-            icon: "assets/icons/Log out.svg",
-            press:(){},
+              text: "Log Out",
+              icon: "assets/icons/Log out.svg",
+              press: () async=>{
+                await FirebaseAuth.instance.signOut(),
+                await storage.delete(key: "uid"),
+                // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>MobileLogin()), (route) => false)
+                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>SignInScreen()), (route) => false)
+              }
           ),
         ],
       ),
@@ -91,6 +111,10 @@ class _BodyState extends State<Body> {
 //   Navigator.pushNamed(context, SignInScreen.routeName);
 // }
 }
+
+
+
+
 class ProfileMenu extends StatelessWidget {
   const ProfileMenu({
     Key? key,
@@ -108,11 +132,11 @@ class ProfileMenu extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: TextButton(
         style: TextButton.styleFrom(
-          primary: kPrimaryColor,
+          primary: Colors.teal,
           padding: EdgeInsets.all(20),
           shape:
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          backgroundColor: Colors.teal[50],
+          backgroundColor: Color(0xFFF5F6F9),
         ),
         onPressed: press,
         child: Row(
@@ -131,7 +155,6 @@ class ProfileMenu extends StatelessWidget {
     );
   }
 }
-
 
 
 
@@ -175,7 +198,7 @@ class ProfilePic extends StatelessWidget {
                     side: BorderSide(color: Colors.white),
                   ),
                   primary: Colors.white,
-                  backgroundColor: Colors.teal[50],
+                  backgroundColor: Color(0xFFF5F6F9),
                 ),
                 onPressed: () {},
                 child: SvgPicture.asset("assets/icons/Camera Icon.svg"),

@@ -4,13 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import '../../../components/custom_surfix_icon.dart';
+import '/../forgot_password/forgot_password_screen.dart';
+import '/../../components/custom_surfix_icon.dart';
 import '../../../components/default_button.dart';
 import '../../../components/form_error.dart';
 import '../../../constants.dart';
 import '../../../helper/keyboard.dart';
 import '../../../size_config.dart';
-import '../../loginsucessscreen/login_sucess_screen.dart';
+import '/../loginsucessscreen/login_sucess_screen.dart';
 
 
 class SignForm extends StatefulWidget {
@@ -73,7 +74,7 @@ class _SignFormState extends State<SignForm> {
               //Text("Remember me"),
               Spacer(),
               GestureDetector(
-                //onTap: () => Navigator.pushNamed(context, ForgotPasswordScreen.routeName),
+                onTap: () => Navigator.pushNamed(context, ForgotPasswordScreen.routeName),
                 child: Text(
                   "Forgot Password",
                   style: TextStyle(decoration: TextDecoration.underline),

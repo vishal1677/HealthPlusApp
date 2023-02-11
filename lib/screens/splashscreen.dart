@@ -1,4 +1,5 @@
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:healthplus/MobileAuth/mobileauth.dart';
@@ -16,11 +17,21 @@ class  SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 class _SplashScreenState extends State<SplashScreen> {
-
+  var auth =FirebaseAuth.instance;
+  var isLogin =false;
+  checkIfLogin() async{
+    auth.authStateChanges().listen((User? user) {
+      if(user!=null && mounted){
+        setState(() {
+          isLogin=true;
+        });
+      }
+    });
+  }
 
   void initState()
   {
-    //checkIfLogin();
+    checkIfLogin();
     super.initState();
     _navigatetohome();
   }
@@ -29,7 +40,18 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(Duration(milliseconds: 5000),(){});// await for 1.5 seconds
 
 
-    Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=> SignInScreen()));
+    //Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=> SignInScreen()));
+    if(isLogin==true)
+    {
+      Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=> HomeScreen()));
+    }
+    else
+    {
+      Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=> SignInScreen()));
+      //Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)=> MobileLogin()));
+
+    }
+
 
   }
 

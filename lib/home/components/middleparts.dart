@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:healthplus/home/components/view_full_report.dart';
 
 import '../icon_but_with_cnt.dart';
 
@@ -20,9 +21,9 @@ class _MiddleState extends State<Middle> {
         padding: const EdgeInsets.all(10),
 // height: 200,
 // color: Colors.amberAccent,
-        height: MediaQuery.of(context).size.height *(1/6)*2,
+        height: MediaQuery.of(context).size.height *(1/4),
         width: MediaQuery.of(context).size.height *double.infinity,
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),color: Colors.teal[50]),
+        decoration: BoxDecoration(border: Border.all(width: 2, color: Colors.teal),borderRadius: BorderRadius.circular(30),color: Colors.teal[50]),
 
 
         child: SingleChildScrollView(
@@ -31,14 +32,15 @@ class _MiddleState extends State<Middle> {
 
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              IconBtnWithCounter(
-                  svgSrc: "assets/icons/User.svg",
-                  press: () {
-//Navigator.push(context, MaterialPageRoute(builder:(context)=> CartScreen()));
-//Navigator.push(context, MaterialPageRoute(builder:(context)=> CustomAppBar(rating: 100.0)));
-//Navigator.pushNamed(context, AddProduct.routeName);
-                  }
-              ),
+//               IconBtnWithCounter(
+//                   svgSrc: "assets/icons/User.svg",
+//                   press: () {
+// //Navigator.push(context, MaterialPageRoute(builder:(context)=> CartScreen()));
+// //Navigator.push(context, MaterialPageRoute(builder:(context)=> CustomAppBar(rating: 100.0)));
+// //Navigator.pushNamed(context, AddProduct.routeName);
+//                   }
+//               ),
+              SizedBox(height: 10,),
               Text(
                 "Name    :",
                 style: TextStyle(color: Colors.deepOrangeAccent,fontSize: 20,fontWeight: FontWeight.bold,),
@@ -100,7 +102,7 @@ class _MiddleState extends State<Middle> {
                   IconBtnWithCounter(
                       svgSrc: "assets/icons/receipt.svg",
                       press: () {
-//Navigator.push(context, MaterialPageRoute(builder:(context)=> CartScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder:(context)=> ViewReport()));
 //Navigator.push(context, MaterialPageRoute(builder:(context)=> CustomAppBar(rating: 100.0)));
 //Navigator.pushNamed(context, AddProduct.routeName);
                       }

@@ -1,25 +1,11 @@
 import 'package:flutter/material.dart';
-import '/components/no_account_text.dart';
 
 
-import '/size_config.dart';
-import 'components/sign_form.dart';
+import '../../../components/social_card.dart';
+import '../../../constants.dart';
+import '../../../size_config.dart';
+import 'sign_up_form.dart';
 
-class SignInScreen extends StatelessWidget {
-  static String routeName = "/sign_in";
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-
-        //title: Text("Sign In"),
-        backgroundColor: Colors.teal,
-        title: Text("Sign In"),
-      ),
-      body: Body(),
-    );
-  }
-}
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -32,25 +18,15 @@ class Body extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(height: SizeConfig.screenHeight * 0.04),
+                SizedBox(height: SizeConfig.screenHeight * 0.04), // 4%
+                Text("Register Account", style: headingStyle),
                 Text(
-                  "Welcome Back",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: getProportionateScreenWidth(28),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  "Sign in with your email and password  \nor continue with social media",
+                  "Complete your details or continue \nwith social media",
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.08),
-                SignForm(),
+                SignUpForm(),
                 SizedBox(height: SizeConfig.screenHeight * 0.08),
-
-
-
                 // Row(
                 //   mainAxisAlignment: MainAxisAlignment.center,
                 //   children: [
@@ -68,8 +44,12 @@ class Body extends StatelessWidget {
                 //     ),
                 //   ],
                 // ),
-                //SizedBox(height: getProportionateScreenHeight(20)),
-                NoAccountText(),
+                SizedBox(height: getProportionateScreenHeight(20)),
+                // Text(
+                //   'By continuing your confirm that you agree \nwith our Term and Condition',
+                //   textAlign: TextAlign.center,
+                //   style: Theme.of(context).textTheme.caption,
+                // )
               ],
             ),
           ),
@@ -78,3 +58,4 @@ class Body extends StatelessWidget {
     );
   }
 }
+
