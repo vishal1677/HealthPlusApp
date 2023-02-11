@@ -141,7 +141,7 @@ class _SignFormState extends State<SignForm> {
             borderSide: BorderSide(width: 2, color: Color(0xffC5C5C5))),
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(width: 2, color: Colors.deepOrangeAccent)),
+            borderSide: BorderSide(width: 2, color: Colors.teal)),
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
       ),
     );
@@ -198,7 +198,7 @@ class _SignFormState extends State<SignForm> {
             borderSide: BorderSide(width: 2, color: Color(0xffC5C5C5))),
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(width: 2, color: Colors.deepOrangeAccent)),
+            borderSide: BorderSide(width: 2, color: Colors.teal)),
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
       ),
     );
