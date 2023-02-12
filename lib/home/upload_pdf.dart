@@ -32,7 +32,7 @@ class _UploadPdfState extends State<UploadPdf> {
     _image = File(image!.path);
     setState(() {});
   }
-
+// uploading image from here
   uploadImage() async {
     final request = http.MultipartRequest(
         "POST", Uri.parse("https://24cb-2401-4900-561b-224f-a86e-d2b3-2df5-b3f7.in.ngrok.io/upload"));
