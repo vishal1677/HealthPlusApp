@@ -10,8 +10,7 @@ import 'package:healthplus/routes.dart';
 import 'package:healthplus/screens/splashscreen.dart';
 
 import 'firebase_options.dart';
-
-
+import 'models/add_date.dart';
 
 
 
@@ -27,6 +26,9 @@ Future<void> main() async
 
 
   WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();//// for add product
+  Hive.registerAdapter(AdddataAdapter());
+  await Hive.openBox<Add_data>('data');
   runApp(MyApp());
 
 

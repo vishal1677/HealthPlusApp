@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+import '../../NearByLab/NearbylabPublishScreen.dart';
 import '../../size_config.dart';
 import '../upload_pdf.dart';
 import 'advice.dart';
@@ -35,6 +36,7 @@ class Categories extends StatelessWidget
                 if(categories[index]["key"]=="1") // Flash deal
                     {
                   //Navigator.push(context,MaterialPageRoute(builder: (context)=>FlashDeal()));
+                  Navigator.push(context,MaterialPageRoute(builder: (context)=>PublishScreen()));
                   Fluttertoast.showToast(msg: "Nearby Labouratory for test !");
                 }
                 else if(categories[index]["key"]=="2")  // Advice
@@ -49,13 +51,12 @@ class Categories extends StatelessWidget
                 }
                 else if(categories[index]["key"]=="4") // Add product
                     {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>UploadPdf()));
+                  //Navigator.push(context, MaterialPageRoute(builder: (context)=>UploadPdf()));
+                  //Navigator.push(context, MaterialPageRoute(builder: (context)=>UploadPdf()));
                   Fluttertoast.showToast(msg: "Add Report");
 
                 }
               }
-
-
           ),
 
 
