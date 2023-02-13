@@ -48,7 +48,7 @@ class Categories extends StatelessWidget
                 }
                 else if(categories[index]["key"]=="3") // Market view
                     {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ViewUserReport()));
+                  //Navigator.push(context, MaterialPageRoute(builder: (context)=>ViewUserReport()));
                   Fluttertoast.showToast(msg: "View Report");
                 }
                 else if(categories[index]["key"]=="4") // Add product
