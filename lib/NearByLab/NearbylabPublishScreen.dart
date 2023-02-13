@@ -53,31 +53,31 @@ class _PublisgScreenState extends State<PublishScreen> {
                 children: [
                   Text(
                     "Laboratory Name :"+snapshot.data?.docs[index]['labname'],
-                    style: TextStyle(color: Colors.deepOrangeAccent,fontSize: 20),),
+                    style: TextStyle(color: Colors.deepOrangeAccent,fontSize: 15),),
                   const SizedBox(
-                    height: 10,
+                    height: 5,
                   ),
 
                   Text(
                     "Owner's Name :"+snapshot.data?.docs[index]['ownername'],
-                    style: TextStyle(color: Colors.deepOrangeAccent,fontSize: 20),
+                    style: TextStyle(color: Colors.deepOrangeAccent,fontSize: 15),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 5,
                   ),
-                  Text(
-                    "Location :"+snapshot.data?.docs[index]['location'],
-                    style: TextStyle(color: Colors.deepOrangeAccent,fontSize: 20),
-                  ),
+                  // Text(
+                  //   "Location :"+snapshot.data?.docs[index]['location'],
+                  //   style: TextStyle(color: Colors.deepOrangeAccent,fontSize: 15),
+                  // ),
                   const SizedBox(
-                    height: 10,
+                    height: 5,
                   ),
                   Text(
                     "Contact no :"+snapshot.data?.docs[index]['mobileno'],
-                    style: TextStyle(color: Colors.deepOrangeAccent,fontSize: 20),
+                    style: TextStyle(color: Colors.deepOrangeAccent,fontSize: 15),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 5,
                   ),
                 ],
               ),

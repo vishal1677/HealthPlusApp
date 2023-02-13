@@ -35,7 +35,7 @@ class _UploadPdfState extends State<UploadPdf> {
 // uploading image from here
   uploadImage() async {
     final request = http.MultipartRequest(
-        "POST", Uri.parse("https://24cb-2401-4900-561b-224f-a86e-d2b3-2df5-b3f7.in.ngrok.io/upload"));
+        "POST", Uri.parse("https://0cee-115-248-146-117.in.ngrok.io/upload"));
     final headers = {"Content-type": "multipart/form-data"};
     request.files.add(http.MultipartFile('image',
         _image!. readAsBytes().asStream(), _image!.lengthSync(),
@@ -49,7 +49,7 @@ class _UploadPdfState extends State<UploadPdf> {
     data = json.decode(res.body);
     User user = FirebaseAuth.instance.currentUser!;
     FirebaseFirestore db = FirebaseFirestore.instance;
-    db.collection("users")
+    db.collection("reports")
         .doc(user.uid)
         .collection('Reports')
          .add(dict)

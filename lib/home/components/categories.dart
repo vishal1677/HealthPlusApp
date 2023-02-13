@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:healthplus/home/components/view_full_report.dart';
+import 'package:healthplus/home/components/view_report.dart';
 
 import '../../NearByLab/NearbylabPublishScreen.dart';
 import '../../size_config.dart';
@@ -46,12 +48,12 @@ class Categories extends StatelessWidget
                 }
                 else if(categories[index]["key"]=="3") // Market view
                     {
-                  //Navigator.push(context, MaterialPageRoute(builder: (context)=>MarketView()));
-                  Fluttertoast.showToast(msg: "Categories");
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ViewUserReport()));
+                  Fluttertoast.showToast(msg: "View Report");
                 }
                 else if(categories[index]["key"]=="4") // Add product
                     {
-                  //Navigator.push(context, MaterialPageRoute(builder: (context)=>UploadPdf()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>UploadPdf()));
                   //Navigator.push(context, MaterialPageRoute(builder: (context)=>UploadPdf()));
                   Fluttertoast.showToast(msg: "Add Report");
 
