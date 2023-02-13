@@ -75,56 +75,65 @@ class _ViewReportState extends State<ViewReport> {
                     'Result',
                   ], isHeader: true),
                   buildRow([
-                    "Haemoglobin",
-                    double.tryParse(myMap["Haemoglobin"]).toString()
+                    "Haemoglobin",""
+                    // double.tryParse(myMap["Haemoglobin"]).toString()
                   ]),
                   buildRow([
-                    "Total WBC count",
-                    double.tryParse(myMap["Total WBC count"]).toString()
+                    "Total WBC count",""
+                    // double.tryParse(myMap["Total WBC count"]).toString()
                   ]),
                   buildRow([
-                    "RBC count",
-                    double.tryParse(myMap["RBC count"]).toString()
+                    "RBC count",""
+                    // double.tryParse(myMap["RBC count"]).toString()
                   ]),
                   buildRow([
-                    "Neutrothils",
-                    double.tryParse(myMap["Neutrothils"]).toString()
+                    "Neutrothils",""
+                    // double.tryParse(myMap["Neutrothils"]).toString()
                   ]),
                   buildRow([
-                    "Lymehocytes",
-                    double.tryParse(myMap["Lymehocytes"]).toString()
-                  ]),
-                  buildRow([
-                    "Monocytes",
-                    double.tryParse(myMap["Monocytes"]).toString()
-                  ]),
-                  buildRow([
-                    "Eosinophils",
-                    double.tryParse(myMap["Eosinophils"]).toString()
+                    "Lymehocytes",""
+                    // double.tryParse(myMap["Lymehocytes"]).toString()
                   ]),
                   buildRow([
                     "Monocytes",
                     double.tryParse(myMap["Monocytes"]).toString()
                   ]),
                   buildRow([
-                    "Eosinophils",
-                    double.tryParse(myMap["Eosinophils"]).toString()
+                    "Eosinophils", ""
+                    // double.tryParse(myMap["Eosinophils"]).toString()
+                  ]),
+                  // buildRow([
+                  //   "Monocytes", ""
+                  //   // double.tryParse(myMap["Monocytes"]).toString()
+                  // ]),
+                  buildRow([
+                    "Eosinophils", ""
+                    // double.tryParse(myMap["Eosinophils"]).toString()
                   ]),
                   buildRow([
-                    "Basophils",
-                    double.tryParse(myMap["Basophils"]).toString()
+                    "Basophils", ""
+                    // double.tryParse(myMap["Basophils"]).toString()
                   ]),
                   buildRow([
-                    "Haematocrit (HCT)",
-                    double.tryParse(myMap["Haematocrit (HCT)"]).toString()
+                    "Haematocrit (HCT)", ""
+                    // double.tryParse(myMap["Haematocrit (HCT)"]).toString()
                   ]),
-                  buildRow(["MCV", double.tryParse(myMap["MCV"]).toString()]),
-                  buildRow(["MCH", double.tryParse(myMap["MCH"]).toString()]),
-                  buildRow(["MCHC", double.tryParse(myMap["MCHC"]).toString()]),
-                  buildRow(["RDW ", double.tryParse(myMap["RDW"]).toString()]),
+                  buildRow(["MCV", ""
+                    // double.tryParse(myMap["MCV"]).toString()
+                    ]
+                  ),
+                  buildRow(["MCH", ""
+                    // double.tryParse(myMap["MCH"]).toString()
+                  ]),
+                  buildRow(["MCHC", ""
+                    // double.tryParse(myMap["MCHC"]).toString()
+                  ]),
+                  buildRow(["RDW ", ""
+                    // double.tryParse(myMap["RDW"]).toString()
+                  ]),
                   buildRow([
-                    "Platelet Count",
-                    double.tryParse(myMap["Platelet Count"]).toString()
+                    "Platelet Count",""
+                    // double.tryParse(myMap["Platelet Count"]).toString()
                   ]),
                 ],
               ),

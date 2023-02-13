@@ -35,7 +35,7 @@ class _UploadPdfState extends State<UploadPdf> {
 // uploading image from here
   uploadImage() async {
     final request = http.MultipartRequest(
-        "POST", Uri.parse("https://0cee-115-248-146-117.in.ngrok.io/upload"));
+        "POST", Uri.parse("https://b33b-117-205-11-137.in.ngrok.io/upload"));
     final headers = {"Content-type": "multipart/form-data"};
     request.files.add(http.MultipartFile('image',
         _image!. readAsBytes().asStream(), _image!.lengthSync(),
@@ -45,6 +45,10 @@ class _UploadPdfState extends State<UploadPdf> {
     http.Response res = await http.Response.fromStream (response);
     
     Map<String,dynamic> dict = jsonDecode(res.body);
+
+     // for( MapEntry<String, dynamic> e in dict.entries){
+     //  dict[e.key]=double.parse(e.value).toString();
+     // }
     print(dict);
     data = json.decode(res.body);
     User user = FirebaseAuth.instance.currentUser!;
@@ -80,7 +84,7 @@ class _UploadPdfState extends State<UploadPdf> {
           ),
 
           ElevatedButton(
-              child: Text("Upload Image & Predict", style: TextStyle(color: Colors.white,fontSize:30)),
+              child: Text("Upload Image & Predict", style: TextStyle(color: Colors.white,fontSize:20)),
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(Colors.teal),
               ),

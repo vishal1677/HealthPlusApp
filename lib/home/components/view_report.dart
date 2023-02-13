@@ -23,6 +23,7 @@ class _ViewUserReportState extends State<ViewUserReport> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("View Your Reports"),
+        backgroundColor: Colors.teal,
       ),
       body: Container(
         child: StreamBuilder(
@@ -59,45 +60,47 @@ class _ViewUserReportState extends State<ViewUserReport> {
 
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+
+                      Text(
+                        "Patient Name :"+snapshot.data?.docs[index]['Patient Name'],
+                        style: TextStyle(color: Colors.teal,fontSize: 15),
+                      ),
                     Text(
                     "Age & Gender :"+snapshot.data?.docs[index]['Age & Sex'],
-                    style: TextStyle(color: Colors.deepOrangeAccent,fontSize: 15),),
+                    style: TextStyle(color: Colors.teal,fontSize: 15),),
                     const SizedBox(
                     height: 5,
                     ),
 
-                    Text(
-                    "Patient Name :"+snapshot.data?.docs[index]['Patient Name'],
-                    style: TextStyle(color: Colors.deepOrangeAccent,fontSize: 15),
-                    ),
+
                       // double.tryParse(snapshot.data?.docs[index]['Monocytes']).toString()
-                      Map<String, double> mp
-                      {
-                        "Basophils" =
-                        snapshot.data?.docs[index]['Basophils'],
-                        mp['Monocytes'] =
-                        snapshot.data?.docs[index]['Monocytes'],
-                        mp['Haemoglobin'] =
-                        snapshot.data?.docs[index]['Haemoglobin'],
-                        mp['Eisonophils'] =
-                        snapshot.data?.docs[index]['Eiosinophils'],
-                        mp['Haematocrit (HCT)'] =
-                        snapshot.data?.docs[index]['Haematocrit (HCT)'],
-                        mp['Lymphocytes'] =
-                        snapshot.data?.docs[index]['Lymphocytes'],
-                        mp['MCH'] = snapshot.data?.docs[index]['MCH'],
-                        mp['MCHC'] = snapshot.data?.docs[index]['MCHC'],
-                        mp['MCV'] = snapshot.data?.docs[index]['MCV'],
-                        mp['Neutrophils'] =
-                        snapshot.data?.docs[index]['Neutrophils'],
-                        mp['Platelet Count'] =
-                        snapshot.data?.docs[index]['Platelet Count'],
-                        mp['RBC count'] =
-                        snapshot.data?.docs[index]['RBC count'],
-                        mp['RDW'] = snapshot.data?.docs[index]['RDW'],
-                        mp['Total WBC Count'] =
-                        snapshot.data?.docs[index]['Total WBC Count'],
-                      }
+                      // Map<String, double> mp
+                      // {
+                      //   "Basophils" :
+                      //   snapshot.data?.docs[index]['Basophils'].toString(),
+                      //   mp['Monocytes'] =
+                      //   snapshot.data?.docs[index]['Monocytes'],
+                      //   mp['Haemoglobin'] =
+                      //   snapshot.data?.docs[index]['Haemoglobin'],
+                      //   mp['Eisonophils'] =
+                      //   snapshot.data?.docs[index]['Eiosinophils'],
+                      //   mp['Haematocrit (HCT)'] =
+                      //   snapshot.data?.docs[index]['Haematocrit (HCT)'],
+                      //   mp['Lymphocytes'] =
+                      //   snapshot.data?.docs[index]['Lymphocytes'],
+                      //   mp['MCH'] = snapshot.data?.docs[index]['MCH'],
+                      //   mp['MCHC'] = snapshot.data?.docs[index]['MCHC'],
+                      //   mp['MCV'] = snapshot.data?.docs[index]['MCV'],
+                      //   mp['Neutrophils'] =
+                      //   snapshot.data?.docs[index]['Neutrophils'],
+                      //   mp['Platelet Count'] =
+                      //   snapshot.data?.docs[index]['Platelet Count'],
+                      //   mp['RBC count'] =
+                      //   snapshot.data?.docs[index]['RBC count'],
+                      //   mp['RDW'] = snapshot.data?.docs[index]['RDW'],
+                      //   mp['Total WBC Count'] =
+                      //   snapshot.data?.docs[index]['Total WBC Count'],
+                      // }
                       const SizedBox(
                     height: 5,
                     ),
@@ -118,7 +121,7 @@ class _ViewUserReportState extends State<ViewUserReport> {
                     IconBtnWithCounter(
                     svgSrc: "assets/icons/receipt.svg",
                     press: () {
-                    // Navigator.push(context, MaterialPageRoute(builder:(context)=> ViewReport(mp)));
+                    Navigator.push(context, MaterialPageRoute(builder:(context)=> ViewReport(data)));
 
                     }
                     ),
