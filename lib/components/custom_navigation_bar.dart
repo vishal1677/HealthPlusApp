@@ -1,7 +1,10 @@
 
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:healthplus/components/DonateReport.dart';
 import 'package:healthplus/components/message.dart';
+import 'package:image_picker/image_picker.dart';
 
 
 import '../constants.dart';
@@ -65,20 +68,23 @@ class CustomBottomNavBar extends StatelessWidget {
               // ),
               IconButton(
                 //svgSrc: "assets/icons/Bell.svg",
-                icon: SvgPicture.asset("assets/icons/Bell.svg"),
+                icon: SvgPicture.asset("assets/icons/Plus Icon.svg"),
                 //numOfitem: 1, // here we have to edit
                  //press: () =>  Navigator.of(context).push(MaterialPageRoute(builder:(context)=> Notifications()),),
-                //press: () =>  Navigator.of(context).push(MaterialPageRoute(builder:(context)=> MarketView()),),
-                onPressed: () {  },
-              ),
-              IconButton(
-                icon: SvgPicture.asset("assets/icons/Conversation.svg"),
-
+               // press: () =>  Navigator.of(context).push(MaterialPageRoute(builder:(context)=> Donatereport()),),
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder:(context)=> Chat()),);
-                  //Navigator.pushNamed(context, Chat.routeName);
+                  Navigator.of(context).push(MaterialPageRoute(builder:(context)=> Donatereport()),);
                 },
+               //
               ),
+              // IconButton(
+              //   icon: SvgPicture.asset("assets/icons/Conversation.svg"),
+              //
+              //   onPressed: () {
+              //     Navigator.of(context).push(MaterialPageRoute(builder:(context)=> Chat()),);
+              //     //Navigator.pushNamed(context, Chat.routeName);
+              //   },
+              // ),
               IconButton(
                 icon: SvgPicture.asset(
                   "assets/icons/User Icon.svg",

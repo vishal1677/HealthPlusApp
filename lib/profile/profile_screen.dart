@@ -63,7 +63,7 @@ class _BodyState extends State<Body> {
           //facing problem to fecth the first name
           ProfileMenu(
             text:  " ${loggedInUser.firstName} ${loggedInUser.secondName}",
-            icon: "assets/icons/User Icon.svg",
+            icon: "assets/icons/User.svg",
             press: () => {
             },
           ),
@@ -143,7 +143,7 @@ class ProfileMenu extends StatelessWidget {
           children: [
             SvgPicture.asset(
               icon,
-              color: kPrimaryColor,
+              color: Colors.teal,
               width: 22,
             ),
             SizedBox(width: 20),
@@ -195,7 +195,7 @@ class ProfilePic extends StatelessWidget {
                 style: TextButton.styleFrom(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),
-                    side: BorderSide(color: Colors.white),
+                    side: BorderSide(color:Color(0xFFF5F6F9)),
                   ),
                   primary: Colors.white,
                   backgroundColor: Color(0xFFF5F6F9),

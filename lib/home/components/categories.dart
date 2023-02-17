@@ -6,6 +6,7 @@ import 'package:healthplus/home/components/view_full_report.dart';
 import 'package:healthplus/home/components/view_report.dart';
 
 import '../../NearByLab/NearbylabPublishScreen.dart';
+import '../../components/message.dart';
 import '../../size_config.dart';
 import '../upload_pdf.dart';
 import 'advice.dart';
@@ -43,12 +44,12 @@ class Categories extends StatelessWidget
                 }
                 else if(categories[index]["key"]=="2")  // Advice
                     {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Advice()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Chat()));
                   Fluttertoast.showToast(msg: "Advice");
                 }
                 else if(categories[index]["key"]=="3") // Market view
                     {
-                  //Navigator.push(context, MaterialPageRoute(builder: (context)=>ViewUserReport()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ViewUserReport()));
                   Fluttertoast.showToast(msg: "View Report");
                 }
                 else if(categories[index]["key"]=="4") // Add product

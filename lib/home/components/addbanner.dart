@@ -11,7 +11,7 @@ class DiscountBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height: 90,
+      //height: 85,
       width: double.infinity,
       margin: EdgeInsets.all(getProportionateScreenWidth(20)),
       padding: EdgeInsets.symmetric(
@@ -27,9 +27,10 @@ class DiscountBanner extends StatelessWidget {
         TextSpan(
           style: TextStyle(color: Colors.white),
           children: [
-            TextSpan(text: "Add Your health related Report here get !\n"),
+            TextSpan(text: "Add Your health related Report here !\n\n"),
+
             TextSpan(
-              text: "Suggestion about health",
+              text: "Get diseases predicted",
               style: TextStyle(
                 fontSize: getProportionateScreenWidth(24),
                 fontWeight: FontWeight.bold,

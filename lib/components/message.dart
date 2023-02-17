@@ -1,3 +1,4 @@
+import 'package:dialog_flowtter/dialog_flowtter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -25,16 +26,16 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  //late DialogFlowtter dialogFlowtter;
+  late DialogFlowtter dialogFlowtter;
   final TextEditingController _controller = TextEditingController();
 
   List<Map<String, dynamic>> messages = [];
 
   @override
-  // void initState() {
-  //   DialogFlowtter.fromFile().then((instance) => dialogFlowtter = instance);
-  //   super.initState();
-  // }
+  void initState() {
+    DialogFlowtter.fromFile().then((instance) => dialogFlowtter = instance);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,30 +72,28 @@ class _HomeState extends State<Home> {
       ),
     );
   }
-
-  sendMessage(String text) {
+  sendMessage(String text) async {
     if (text.isEmpty) {
       print('Message is empty');
+    } else {
+      setState(() {
+        addMessage(Message(text: DialogText(text: [text])), true);
+      });
+
+      DetectIntentResponse response = await dialogFlowtter.detectIntent(
+          queryInput: QueryInput(text: TextInput(text: text)));
+      if (response.message == null) return;
+      setState(() {
+        addMessage(response.message!);
+      });
     }
-    //   else {
-    //     setState(() {
-    //       addMessage(Message(text: DialogText(text: [text])), true);
-    //     });
-    //
-    //     DetectIntentResponse response = await dialogFlowtter.detectIntent(
-    //         queryInput: QueryInput(text: TextInput(text: text)));
-    //     if (response.message == null) return;
-    //     setState(() {
-    //       addMessage(response.message!);
-    //     });
-    //   }
-    // }
-    //
-    // addMessage(Message message, [bool isUserMessage = false]) {
-    //   messages.add({'message': message, 'isUserMessage': isUserMessage});
-    // }
+  }
+
+  addMessage(Message message, [bool isUserMessage = false]) {
+    messages.add({'message': message, 'isUserMessage': isUserMessage});
   }
 }
+
 
 class MessagesScreen extends StatefulWidget {
   final List messages;

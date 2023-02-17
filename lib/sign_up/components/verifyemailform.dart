@@ -47,7 +47,7 @@ class _VerifyEmailState extends State<VerifyEmail> {
 
       appBar: AppBar(
         title: const Text("Email Verification"),
-        backgroundColor: Colors.deepOrangeAccent,
+        backgroundColor: Colors.teal,
       ),
       body:
       Padding(
@@ -77,7 +77,7 @@ class _VerifyEmailState extends State<VerifyEmail> {
                 },
                 child: const Text("Vefiry Email "),
               style: ElevatedButton.styleFrom(
-                primary: Colors.deepOrangeAccent,
+                primary: Colors.teal,
               ),
             ),
             SizedBox(height: getProportionateScreenHeight(30)),
@@ -108,7 +108,7 @@ class _VerifyEmailState extends State<VerifyEmail> {
                 },
                 child: Text("I have verified email "),
               style: ElevatedButton.styleFrom(
-                primary: Colors.deepOrangeAccent,
+                primary: Colors.teal,
               ),
 
               ),

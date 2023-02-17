@@ -36,9 +36,9 @@ class _PublisgScreenState extends State<PublishScreen> {
         child: Container(
           //margin: const EdgeInsets.all(10),
           padding: const EdgeInsets.all(10),
-          // height: 200,
+          //height: 200,
           // color: Colors.amberAccent,
-          height: MediaQuery.of(context).size.height *1/4,
+          height: MediaQuery.of(context).size.height *1/6,
           width: MediaQuery.of(context).size.height *1/3,
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),border: Border.all(width: 2, color: Colors.teal),color: Colors.teal[50]),
 
@@ -53,18 +53,18 @@ class _PublisgScreenState extends State<PublishScreen> {
                 children: [
                   Text(
                     "Laboratory Name :"+snapshot.data?.docs[index]['labname'],
-                    style: TextStyle(color: Colors.deepOrangeAccent,fontSize: 15),),
+                    style: TextStyle(color: Colors.teal,fontSize: 15),),
                   const SizedBox(
                     height: 5,
                   ),
 
                   Text(
                     "Owner's Name :"+snapshot.data?.docs[index]['ownername'],
-                    style: TextStyle(color: Colors.deepOrangeAccent,fontSize: 15),
+                    style: TextStyle(color: Colors.teal,fontSize: 15),
                   ),
-                  const SizedBox(
-                    height: 5,
-                  ),
+                  // const SizedBox(
+                  //   height: 5,
+                  // ),
                   // Text(
                   //   "Location :"+snapshot.data?.docs[index]['location'],
                   //   style: TextStyle(color: Colors.deepOrangeAccent,fontSize: 15),
@@ -74,7 +74,7 @@ class _PublisgScreenState extends State<PublishScreen> {
                   ),
                   Text(
                     "Contact no :"+snapshot.data?.docs[index]['mobileno'],
-                    style: TextStyle(color: Colors.deepOrangeAccent,fontSize: 15),
+                    style: TextStyle(color: Colors.teal,fontSize: 15),
                   ),
                   const SizedBox(
                     height: 5,

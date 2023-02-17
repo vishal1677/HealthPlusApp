@@ -5,10 +5,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:healthplus/components/rounded_icon_btn.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'components/view_full_report.dart';
+import 'customloader.dart';
 
 
 
@@ -26,6 +29,7 @@ class _UploadPdfState extends State<UploadPdf> {
   File? _image;
   String? message;
   var data;
+  bool isloading=false;
 
   Future getImage() async {
     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
@@ -34,8 +38,11 @@ class _UploadPdfState extends State<UploadPdf> {
   }
 // uploading image from here
   uploadImage() async {
+    setState(() {
+      isloading=true;
+    });
     final request = http.MultipartRequest(
-        "POST", Uri.parse("https://b33b-117-205-11-137.in.ngrok.io/upload"));
+        "POST", Uri.parse("https://096a-117-205-11-137.in.ngrok.io/upload"));
     final headers = {"Content-type": "multipart/form-data"};
     request.files.add(http.MultipartFile('image',
         _image!. readAsBytes().asStream(), _image!.lengthSync(),
@@ -45,21 +52,27 @@ class _UploadPdfState extends State<UploadPdf> {
     http.Response res = await http.Response.fromStream (response);
     
     Map<String,dynamic> dict = jsonDecode(res.body);
-
-     // for( MapEntry<String, dynamic> e in dict.entries){
-     //  dict[e.key]=double.parse(e.value).toString();
-     // }
     print(dict);
+
+    for(MapEntry<String, dynamic> e in dict.entries)
+      {
+        dict[e.key]=e.value.toString();
+      }
+
     data = json.decode(res.body);
     User user = FirebaseAuth.instance.currentUser!;
     FirebaseFirestore db = FirebaseFirestore.instance;
-    db.collection("reports")
+    db.collection("users")
         .doc(user.uid)
         .collection('Reports')
-         .add(dict)
-        ;
+         .add(dict);
+    db.collection("reports").add(dict);
 
-    setState(() {});
+    setState(() {
+      isloading=false;
+      Navigator.push(context, MaterialPageRoute(builder: (context)=> ViewReport(dict)));
+
+    });
 
 
   }
@@ -69,14 +82,17 @@ class _UploadPdfState extends State<UploadPdf> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.teal,
-        title: Text(" Report"),
+        title: Text(" Upload Report"),
       ),
-      body: Column(
+      body: isloading ? CustomLoader():
+      Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           _image == null
-              ? Text('No image selected.')
+              ? Text('No image selected.',
+            style: TextStyle(color: Colors.teal, fontSize: 20),
+          )
               : Image.file(_image!),
 
           Container(
@@ -84,17 +100,23 @@ class _UploadPdfState extends State<UploadPdf> {
           ),
 
           ElevatedButton(
-              child: Text("Upload Image & Predict", style: TextStyle(color: Colors.white,fontSize:20)),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color>(Colors.teal),
+
+              child: Text("Upload Image", style: TextStyle(color: Colors.white,fontSize:25)),
+              style:ElevatedButton.styleFrom(
+                backgroundColor: Colors.teal,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  )
               ),
-              onPressed: uploadImage,
+              onPressed: uploadImage
           ),
+
           SizedBox(height: 20,),
 
         ],
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.teal,
         onPressed: getImage,
           child: Icon(Icons.add_a_photo),
       ),

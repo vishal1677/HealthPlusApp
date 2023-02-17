@@ -220,8 +220,6 @@ class _MiddleState extends State<Middle> {
             {
               return CircularProgressIndicator();
             }
-
-
         },
       ),
     ),

@@ -12,13 +12,8 @@ class LoginSuccessScreen extends StatelessWidget {
 
 
     return Scaffold(
+        backgroundColor: Colors.white,
         resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          backgroundColor: Colors.teal,
-          leading: SizedBox(),
-          //title: Text("Login Success",),
-          title: Text("     Welcome",style: TextStyle(fontSize: 38,fontWeight: FontWeight.w400),),
-        ),
 
         body: Body()
     );
@@ -54,10 +49,10 @@ class Body extends StatelessWidget {
 
 
         children: [
-          SizedBox(height: SizeConfig.screenHeight * 0.04),
+          SizedBox(height: SizeConfig.screenHeight * 0.2),
           SingleChildScrollView(
             child: Image.asset(
-              "assets/images/login_success.png",
+              "assets/images/welcome1.jpg",
               height: SizeConfig.screenHeight * 0.4, //40%
             ),
           ),
