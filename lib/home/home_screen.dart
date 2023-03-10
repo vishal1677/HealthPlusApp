@@ -9,6 +9,7 @@ import 'package:healthplus/home/components/categories.dart';
 import '../components/custom_navigation_bar.dart';
 import '../enums.dart';
 import '../size_config.dart';
+import 'components/SuggesstionBanner.dart';
 import 'components/addbanner.dart';
 import 'components/home_header.dart';
 import 'components/middleparts.dart';

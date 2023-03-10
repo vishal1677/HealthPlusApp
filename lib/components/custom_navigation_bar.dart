@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:healthplus/components/DonateReport.dart';
 import 'package:healthplus/components/message.dart';
+import 'package:healthplus/home/components/appointment.dart';
 import 'package:image_picker/image_picker.dart';
 
 
@@ -77,14 +78,15 @@ class CustomBottomNavBar extends StatelessWidget {
                 },
                //
               ),
-              // IconButton(
-              //   icon: SvgPicture.asset("assets/icons/Conversation.svg"),
-              //
-              //   onPressed: () {
-              //     Navigator.of(context).push(MaterialPageRoute(builder:(context)=> Chat()),);
-              //     //Navigator.pushNamed(context, Chat.routeName);
-              //   },
-              // ),
+              IconButton(
+                icon: SvgPicture.asset("assets/icons/Conversation.svg"),
+
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder:(context)=> Appointment()),);
+                  //Navigator.pushNamed(context, Chat.routeName);
+
+                },
+              ),
               IconButton(
                 icon: SvgPicture.asset(
                   "assets/icons/User Icon.svg",
