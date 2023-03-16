@@ -82,29 +82,12 @@ class _UploadHeartMRIState extends State<UploadHeartMRI> {
     }
 
     data = json.decode(res.body);
-    User user = FirebaseAuth.instance.currentUser!;
-    FirebaseFirestore db = FirebaseFirestore.instance;
     db.collection("users")
         .doc(user.uid)
         .collection('HeartMRI')
         .add(dict);
     db.collection("MRI").add(dict);
-    Reference referenceRoot = FirebaseStorage.instance.ref();
-    Reference referenceMRI = referenceRoot.child("MRI");
-    String uniqueFilename= DateTime.now().millisecondsSinceEpoch.toString();
-    Reference referenceToupload = referenceMRI.child(uniqueFilename);
-    try {
-      await referenceToupload.putFile(File(_image!.path));
-      imageURL = await referenceToupload.getDownloadURL();
-      db.collection("users")
-          .doc(user.uid)
-          .collection('HeartMRI')
-          .add({'image':imageURL});
-      db.collection("MRI").add({'image' : imageURL});
-    }catch(error){
-       Fluttertoast.showToast(msg: "Something went wrong");
 
-    }
 
     setState(() {
       isloading=false;
