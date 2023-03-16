@@ -2,8 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:healthplus/home/components/Blockchain/transaction.dart';
+import 'package:healthplus/home/components/addrecords.dart';
+import 'package:healthplus/home/components/uploadRecords/upload_screen.dart';
 import 'package:healthplus/home/components/view_full_report.dart';
 import 'package:healthplus/home/components/view_report.dart';
+import 'package:healthplus/home/components/viewrecords.dart';
+import 'package:healthplus/home/getprediction.dart';
 
 import '../../NearByLab/NearbylabPublishScreen.dart';
 import '../../components/message.dart';
@@ -44,7 +49,13 @@ class Categories extends StatelessWidget
                 }
                 else if(categories[index]["key"]=="2")  // Advice
                     {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Chat()));
+                    Transaction t1= Transaction (
+                        sender: "Vishal",
+                        receiver: "Doctor",
+                        details: [],
+                        timestamp: DateTime.now());
+
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>VisitDetails(t1, true)));
                   Fluttertoast.showToast(msg: "Advice");
                 }
                 else if(categories[index]["key"]=="3") // Market view
@@ -54,9 +65,9 @@ class Categories extends StatelessWidget
                 }
                 else if(categories[index]["key"]=="4") // Add product
                     {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>UploadPdf()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>UploadRecords()));
                   //Navigator.push(context, MaterialPageRoute(builder: (context)=>UploadPdf()));
-                  Fluttertoast.showToast(msg: "Add Report");
+                  Fluttertoast.showToast(msg: "Add Record");
 
                 }
               }

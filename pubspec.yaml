@@ -80,6 +80,7 @@ dependencies:
   firebase_auth: ^4.2.6
   image_picker: ^0.8.6+1
   uuid: ^3.0.7
+  google_fonts: ^4.0.3
 
 dev_dependencies:
   flutter_test:

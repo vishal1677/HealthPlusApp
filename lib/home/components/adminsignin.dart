@@ -311,8 +311,8 @@ class _AdminSignFormState extends State<AdminSignForm> {
     if(_formKey.currentState!.validate())
     {
       await _auth.signInWithEmailAndPassword(email: email, password: password).then((uid) => {
-        Fluttertoast.showToast(msg: "Login Sucessful"),
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>ViewAdminReport()))
+        Fluttertoast.showToast(msg: "Login Sucessfull"),
+        // Navigator.push(context, MaterialPageRoute(builder: (context)=>ViewAdminReport()))
         //// 19:12 see validation
       }).catchError((e){
         Fluttertoast.showToast(msg: e!.message);

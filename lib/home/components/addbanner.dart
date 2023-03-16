@@ -27,10 +27,10 @@ class DiscountBanner extends StatelessWidget {
         TextSpan(
           style: TextStyle(color: Colors.white),
           children: [
-            TextSpan(text: "Add Your health related Report here !\n\n"),
+            TextSpan(text: " Upload your information  \n\n"),
 
             TextSpan(
-              text: "Get diseases predicted",
+              text: "Get heart diseases predicted",
               style: TextStyle(
                 fontSize: getProportionateScreenWidth(24),
                 fontWeight: FontWeight.bold,
