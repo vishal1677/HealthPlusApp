@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:healthplus/sign_up/Manufacture_registration.dart';
+
 import '/components/no_account_text.dart';
 
 
@@ -71,8 +73,10 @@ class Body extends StatelessWidget {
                 // ),
                 //SizedBox(height: getProportionateScreenHeight(20)),
                 NoAccountText(),
+
                 SizedBox(height: SizeConfig.screenHeight * 0.08),
                 NoAccountTextM()
+
 
               ],
             ),

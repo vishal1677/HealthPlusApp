@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+
+
+
+import 'package:healthplus/home/components/showadminreports.dart';
+
 import '../../components/custom_surfix_icon.dart';
 import '../../components/default_button.dart';
 import '../../components/form_error.dart';
@@ -311,8 +316,13 @@ class _AdminSignFormState extends State<AdminSignForm> {
     if(_formKey.currentState!.validate())
     {
       await _auth.signInWithEmailAndPassword(email: email, password: password).then((uid) => {
+
         Fluttertoast.showToast(msg: "Login Sucessful"),
         //Navigator.push(context, MaterialPageRoute(builder: (context)=>ViewAdminReport()))
+
+        Fluttertoast.showToast(msg: "Login Sucessfull"),
+        // Navigator.push(context, MaterialPageRoute(builder: (context)=>ViewAdminReport()))
+
         //// 19:12 see validation
       }).catchError((e){
         Fluttertoast.showToast(msg: e!.message);

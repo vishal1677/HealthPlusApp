@@ -1,9 +1,14 @@
 import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:healthplus/home/components/search_field.dart';
 import 'package:healthplus/sign_up/Manufacture_registration.dart';
 
 import '../../BlockChain/manufacturemedicine.dart';
+
+import 'package:healthplus/home/components/search_field.dart';
+
+
 import '../../size_config.dart';
 import '../icon_but_with_cnt.dart';
 
@@ -27,7 +32,9 @@ class HomeHeader extends StatelessWidget {
                 //Navigator.push(context, MaterialPageRoute(builder:(context)=> CartScreen()));
                 //Navigator.push(context, MaterialPageRoute(builder:(context)=> CustomAppBar(rating: 100.0)));
                 //Navigator.pushNamed(context, AddProduct.routeName);
+
                 Navigator.push(context, MaterialPageRoute(builder:(context)=> SignUpScreenMB()));
+
               }
           ),
           //Admin(),  // removed from search field add cart

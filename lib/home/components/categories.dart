@@ -2,10 +2,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+
 import 'package:healthplus/home/components/view_full_report.dart';
 import 'package:healthplus/home/components/view_report.dart';
 
 import '../../BlockChain/ExpiryCheck.dart';
+
+import 'package:healthplus/home/components/Blockchain/transaction.dart';
+import 'package:healthplus/home/components/addrecords.dart';
+import 'package:healthplus/home/components/uploadRecords/upload_screen.dart';
+import 'package:healthplus/home/components/view_full_report.dart';
+import 'package:healthplus/home/components/view_report.dart';
+import 'package:healthplus/home/components/viewrecords.dart';
+import 'package:healthplus/home/getprediction.dart';
+
+
 import '../../NearByLab/NearbylabPublishScreen.dart';
 import '../../components/message.dart';
 import '../../size_config.dart';
@@ -20,7 +31,11 @@ class Categories extends StatelessWidget
     List<Map<String, dynamic>> categories = [
       {"icon": "assets/icons/Flash Icon.svg", "text": "Near by Lab","key":"1"},
       {"icon": "assets/icons/adviceImage2.svg", "text": "Advice","key":"2"},
+
       {"icon": "assets/icons/Gift Icon.svg", "text": "Expiry","key":"5"},
+
+      //{"icon": "assets/icons/Game Icon.svg", "text": "Game"},
+
       {"icon": "assets/icons/receipt.svg", "text": "View Report","key":"3"},
       {"icon": "assets/icons/Discover.svg", "text": " Add Report","key":"4"},
     ];
@@ -45,7 +60,17 @@ class Categories extends StatelessWidget
                 }
                 else if(categories[index]["key"]=="2")  // Advice
                     {
+
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>Chat()));
+
+                    Transaction t1= Transaction (
+                        sender: "Vishal",
+                        receiver: "Doctor",
+                        details: [],
+                        timestamp: DateTime.now());
+
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>VisitDetails(t1, true)));
+
                   Fluttertoast.showToast(msg: "Advice");
                 }
                 else if(categories[index]["key"]=="3") // Market view
@@ -55,6 +80,7 @@ class Categories extends StatelessWidget
                 }
                 else if(categories[index]["key"]=="4") // Add product
                     {
+
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>UploadPdf()));
                   //Navigator.push(context, MaterialPageRoute(builder: (context)=>UploadPdf()));
                   Fluttertoast.showToast(msg: "Add Report");
@@ -65,6 +91,11 @@ class Categories extends StatelessWidget
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>ExpiryCheck()));
                   //Navigator.push(context, MaterialPageRoute(builder: (context)=>UploadPdf()));
                   Fluttertoast.showToast(msg: "Expiry Check");
+
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>UploadRecords()));
+                  //Navigator.push(context, MaterialPageRoute(builder: (context)=>UploadPdf()));
+                  Fluttertoast.showToast(msg: "Add Record");
+
 
                 }
               }
